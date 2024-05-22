@@ -51,6 +51,9 @@ func (o Options) CompareFieldName(a, b string) bool {
 	if o.ExactCase {
 		return a == b
 	}
+	if o.Getter {
+		return a == b || "Get"+a == b
+	}
 	return strings.EqualFold(a, b)
 }
 
